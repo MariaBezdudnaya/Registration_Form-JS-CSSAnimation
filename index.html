@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Форма регистрации PRODUCTSTAR." />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>RegistrationForm</title>
+    <link
+      rel="shortcut icon"
+      href="https://static.tildacdn.com/tild6463-6639-4636-a131-323534663232/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/style540.css" />
+    <link rel="stylesheet" href="./styles/style768.css" />
+    <link rel="stylesheet" href="./styles/style1024.css" />
+  </head>
+  <body>
+    <main>
+      <img src="https://i.gifer.com/yC.gif" alt="cat" class="cat" />
+      <h1 id="formTitle">PRODUCTSTAR Registration Form</h1>
+      <!-- <div class="formContainer"> -->
+      <form action="/register" id="postForm">
+        <div  class="login">
+          <label for="login" id="login">Login:</label>
+          <input id="loginInput" type="text" name="login" placeholder="Enter your login" minlength="5" required/>
+          <div id="errorLoginText" class="errorText"></div>
+        </div>
+  
+        <div class="email">
+          <label for="email" id="email">E-Mail:</label>
+          <input id="emailInput" type="email" name="email" placeholder="Enter your e-mail" minlength="3" required/>
+          <div id="errorEmailText" class="errorText"></div>
+          <div id="errorEmailTextAfterDot" class="errorText"></div>
+        </div>
+  
+        <div class="password">
+          <label for="password" id="password">Password:</label>
+          <div class="password">
+            <input id="passwordInput" type="password" name="password" placeholder="Enter your password" required/>
+            <img id="showPsw" class="showPsw" src="https://cdn-icons-png.flaticon.com/128/159/159604.png" onclick="replaceImage()">
+          </div>
+
+          <div class="passwordRepeat">
+            <input id="passwordInputRepeat" type="password" name="password" placeholder="Repeat your password" required/>
+            <img id="showPswRep" class="showPsw" src="https://cdn-icons-png.flaticon.com/128/159/159604.png" onclick="replaceImageRep()">
+          </div>
+          <div id="errorPswText" class="errorText"></div>
+
+        </div>
+  
+        <div class="lang">
+          <label for="lang" id="language">Language:</label>
+          <select id="lang" name="lang" required>
+            <option value="Russian" id="rus">Russian</option>
+            <option value="English" id="eng">English</option>
+          </select>
+        </div>
+  
+        <label class="custom-checkbox"> 
+          <input id="checkboxInput" class="hidden-checkbox" type="checkbox">
+          <div class="checkbox"> 
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#5c4949" d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+              </div>
+              <div class="agreement">
+                <p id="checkboxText">By creating an account you agree to our</p>
+                <a href="#" id="checkboxLink">Terms & Privacy.</a>
+              </div>
+        </label>
+  
+        <div class="btn">
+          <button id="submitBtn" type="submit" value="Submit">Register</button>
+          <button id="resetBtn" type="reset" value="Reset">Reset</button>
+        </div>
+  
+        <div class="signIn">
+          <p id="signInText">Already have an account?</p> 
+          <a href="#" id="signInLink">Sign in.</a>
+        </div>
+      </form>
+      <!-- </div> -->
+    </main>
+
+    <div class="outputData" style="display: none;">
+      <h1>Output Data</h1>
+      <form id="outputForm">
+        <label for="loginData">Login:</label>
+        <input id="outputDataLogin" type="text" readonly>
+        <label for="emailData">E-Mail:</label>
+        <input id="outputDataEmail" type="text" readonly>
+        <label for="passwordData">Password:</label>
+        <input id="outputDataPassword" type="text" readonly>
+        <label for="passwordRepeatData">Password repeat:</label>
+        <input id="outputDataRepeatPassword" type="text" readonly>
+        <label for="langData">Language:</label>
+        <input id="outputDataLang" type="text" readonly>
+        <label for="checkboxState">Checkbox State:</label>
+        <input id="outputDatacheckboxState" type="text" readonly>
+      </form>
+    </div>
+    <button id="btnLang"></button>
+    <script src="https://unpkg.com/i18next@23.8.2/dist/umd/i18next.min.js"></script>
+    <script async type="module" src="./js/i18n.js"></script>
+    <script async src="./js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/123/date_fns.min.js"></script>
+    <script>
+      // console.dir(dateFns);
+      const date = new Date();
+      // console.log(date);
+      console.log(dateFns.format(date, "Do MMMM YYYY"));
+    </script>
+  </body>
+</html>
