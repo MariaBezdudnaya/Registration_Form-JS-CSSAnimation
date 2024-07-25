@@ -2,6 +2,7 @@
   form {
     padding: 15px 40px 15px 40px;
     max-width: 400px;
+    display: grid;
     grid-template-columns: repeat(3);
     grid-template-rows: repeat(4);
   }
@@ -34,9 +35,13 @@
     max-width: 200px;
     grid-column: 2 / 3;
     grid-row: 3 / 5;
-    display: flex;
-    flex-direction: column;
     gap: 10px;
+  }
+  button {
+    min-width: 130px;
+  }
+  .custom-checkbox {
+    width: 90%;
   }
   .cat {
     top: 3%;

@@ -4,7 +4,8 @@
   "description": "A template for HTML and CSS",
   "main": "index.html",
   "scripts": {
-    "start": "serve"
+    "start": "serve",
+    "build": "rollup -c"
   },
   "keywords": [
     "html",
@@ -13,6 +14,7 @@
   "author": "Ives van Hoorne",
   "license": "MIT",
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "serve": "11.2.0"
   }
 }
