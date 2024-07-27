@@ -23,54 +23,75 @@ function checkboxState() {
 
 document.getElementById("submitBtn").addEventListener("click", (event) => {
     event.preventDefault()
+    
     outputDataLogin.value = inputDataLogin.value;
     outputDataEmail.value = inputDataEmail.value;
     outputDataPsw.value = inputDataPsw.value;
     outputDataPswRep.value = inputDataPswRep.value;
     outputDataLang.value = inputDataLang.value;
     checkboxState();
+
     const errorPsw = document.getElementById("errorPswText");
-    if (outputDataPsw.value !== outputDataPswRep.value) {
+    if (outputDataPsw.value !== outputDataPswRep.value) {  // пароли не совпадают
       errorPsw.classList.add("visible");
-      // errorPswText.innerHTML = 'пароли не совпадают';
     } else {
       errorPsw.classList.remove("visible");
-      // errorPswText.innerHTML = '';
+    }
+
+    if (loginInput.value.trim() === "") { // Пустое поле логина, мигает красным цветом
+      loginInput.classList.add("errorLogin");
+      setTimeout(() => {
+          loginInput.classList.remove("errorLogin");
+      }, 1000); // Удаляем класс через 1 секунду
+    }
+
+    if (emailInput.value.trim() === "") { // Пустое поле почты, мигает красным цветом
+      emailInput.classList.add("errorEmail");
+      setTimeout(() => {
+          emailInput.classList.remove("errorEmail");
+      }, 1000); // Удаляем класс через 1 секунду
+    }
+
+    if (passwordInput.value === "") { // Проверяем, пустое ли поле пароля
+      passwordInput.classList.add("errorPsw"); // Если пустое, добавляем класс "errorPsw"
+      setTimeout(() => {
+        passwordInput.classList.remove("errorPsw");
+      }, 1000); // Удаляем класс через 1 секунду
+    } else {
+      passwordInput.classList.remove("errorPsw"); // Если не пустое, убираем класс "errorPsw"
+    }
+
+    if (passwordInputRepeat.value === "") {  // Проверяем, пустое ли поле пароля
+      passwordInputRepeat.classList.add("errorPsw"); // Если пустое, добавляем класс "errorPsw" для анимации
+      setTimeout(() => {
+        passwordInputRepeat.classList.remove("errorPsw");
+      }, 1000); // Удаляем класс через 1 секунду
+    } else {
+      passwordInputRepeat.classList.remove("errorPsw");  // Если не пустое, убираем класс "errorPsw"
     }
 });
 
-// Регулярные выражения
+// Регулярные выражения, валидация формы
 // Для поля "Login"
 const loginInput = document.getElementById("loginInput");
+const errorLogin = document.getElementById("errorLoginText");
 loginInput.addEventListener('blur', () => {
     const regexp =  /^[a-zA-Z\s\-]+$/;
     const errorLogin = document.getElementById("errorLoginText");
     if (!regexp.test(loginInput.value)) {
       errorLogin.classList.add("visible");
-        // errorLoginText.innerHTML = 'поле может содержать символы кириллицы, дефис и пробел';
     } else {
       errorLogin.classList.remove("visible");
-      // errorLogin.innerHTML = '';
     }
   });
 
   // Для поля "E-mail"
   const emailInput = document.getElementById("emailInput");
   emailInput.addEventListener('blur', () => {
-//     Можно так:
-    // const regexp = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
-    // if (!regexp.test(emailInput.value)) {
-    //     errorEmailText.innerHTML = 'в поле можно ввести только латинские буквы, цифры и обязательно должны присутствовать символы «@» и «.», после точки должно быть не менее двух символов';
-    // } else {
-    //         errorEmailText.innerHTML = '';
-    //       }
-    // });
-//     Либо так:
     const regexp = /[a-zA-Z0-9]+@[a-zA-Z0-9]+\./;
     const error = document.getElementById("errorEmailText");
     if (!regexp.test(emailInput.value)) {
         error.classList.add("visible");
-        // errorEmailText.innerHTML = 'в поле можно ввести только латинские буквы, цифры и обязательно должны присутствовать символы «@» и «.»';
     } else {
         error.classList.remove("visible");
         const dotIndex = emailInput.value.indexOf(".");
@@ -78,19 +99,17 @@ loginInput.addEventListener('blur', () => {
         const errorAfterDot = document.getElementById("errorEmailTextAfterDot");
         if (charsAfterDot.length < 2) {
             errorAfterDot.classList.add("visible");
-            // errorEmailTextAfterDot.innerHTML = 'после точки должно быть не менее двух символов';
           } else {
             errorAfterDot.classList.remove("visible");
-            // errorEmailTextAfterDot.innerHTML = '';
           }
     }
   });
 
   // Показать/Скрыть пароль:
-  function replaceImage() { //в поле password
+  function replaceImage() {
     const image = document.getElementById("showPsw");
     const passwordInput = document.getElementById("passwordInput");
-    if (image.src.includes("https://cdn-icons-png.flaticon.com/128/159/159604.png")) {
+    if (image.src.includes("https://cdn-icons-png.flaticon.com/128/159/159604.png")) {  // Проверяем, какой сейчас тип поля (текст или пароль)
       image.src = "https://cdn-icons-png.flaticon.com/128/10812/10812267.png";
       passwordInput.type = "text";
     } else {
@@ -98,10 +117,14 @@ loginInput.addEventListener('blur', () => {
       passwordInput.type = "password";
     }
   }
+  const passwordInput = document.getElementById("passwordInput"); // Вешаем обработчик на событие смены фокуса (focusout)
+  passwordInput.addEventListener('focusout', replaceImage);
+
+
   function replaceImageRep() { //в поле passwordRepeat
     const image = document.getElementById("showPswRep");
     const passwordInput = document.getElementById("passwordInputRepeat");
-    if (image.src.includes("https://cdn-icons-png.flaticon.com/128/159/159604.png")) {
+    if (image.src.includes("https://cdn-icons-png.flaticon.com/128/159/159604.png")) {  // Проверяем, какой сейчас тип поля (текст или пароль)
       image.src = "https://cdn-icons-png.flaticon.com/128/10812/10812267.png";
       passwordInput.type = "text";
     } else {
@@ -109,3 +132,5 @@ loginInput.addEventListener('blur', () => {
       passwordInput.type = "password";
     }
   }
+  const passwordInputRepeat = document.getElementById("passwordInputRepeat"); // Вешаем обработчик на событие смены фокуса (focusout)
+  passwordInputRepeat.addEventListener('focusout', replaceImageRep);

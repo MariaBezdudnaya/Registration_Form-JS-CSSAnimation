@@ -39,11 +39,11 @@ h1 {
 
 input {
   padding: 5px 5px;
-  background-color: #cddbde;
-  transition: background 0.5s ease-in-out;
+  background-color: #c6c791;
+  transition: 0.5s ease-in-out;
 }
 input:focus {
-  background-color: #d4d864;
+  background-color: #ffffff;
 }
 
 .password input {
@@ -52,11 +52,9 @@ input:focus {
 
 select {
   padding: 5px 5px;
-  background-color: #cddbde;
+  background-color: #c6c791;
 }
-select option {
-  background-color: antiquewhite;
-}
+
 
 /* .agreement, */
 .custom-checkbox {
@@ -180,13 +178,18 @@ form label {
 }
 
 .errorText {
-  color: red;
+  color: #ff0000;
   font-size: 12px;
   display: none;
 }
 .errorText.visible {
   display: block;
 }
+
+.errorLogin, .errorEmail, .errorPsw { 
+  background-color: #b67c7c;
+}
+
 
 .showPsw {
   position: relative;
