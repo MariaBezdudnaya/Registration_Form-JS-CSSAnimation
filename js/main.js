@@ -109,11 +109,11 @@ loginInput.addEventListener('blur', () => {
   function replaceImage() {
     const image = document.getElementById("showPsw");
     const passwordInput = document.getElementById("passwordInput");
-    if (image.src.includes("https://cdn-icons-png.flaticon.com/128/159/159604.png")) {  // Проверяем, какой сейчас тип поля (текст или пароль)
-      image.src = "https://cdn-icons-png.flaticon.com/128/10812/10812267.png";
+    if (image.src.includes("img/hiddenPsw.png")) {  // Проверяем, какой сейчас тип поля (текст или пароль)
+      image.src = "../img/showPsw.png";
       passwordInput.type = "text";
     } else {
-      image.src = "https://cdn-icons-png.flaticon.com/128/159/159604.png";
+      image.src = "../img/hiddenPsw.png";
       passwordInput.type = "password";
     }
   }
@@ -124,11 +124,11 @@ loginInput.addEventListener('blur', () => {
   function replaceImageRep() { //в поле passwordRepeat
     const image = document.getElementById("showPswRep");
     const passwordInput = document.getElementById("passwordInputRepeat");
-    if (image.src.includes("https://cdn-icons-png.flaticon.com/128/159/159604.png")) {  // Проверяем, какой сейчас тип поля (текст или пароль)
-      image.src = "https://cdn-icons-png.flaticon.com/128/10812/10812267.png";
+    if (image.src.includes("img/hiddenPsw.png")) {  // Проверяем, какой сейчас тип поля (текст или пароль)
+      image.src = "../img/showPsw.png";
       passwordInput.type = "text";
     } else {
-      image.src = "https://cdn-icons-png.flaticon.com/128/159/159604.png";
+      image.src = "../img/hiddenPsw.png";
       passwordInput.type = "password";
     }
   }

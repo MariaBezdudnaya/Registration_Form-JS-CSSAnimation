@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+/* GENERAL */
+* {
+  margin: 0 auto;
+  font-family: "Montserrat";
+  box-sizing: border-box;
+}
+body {
+  margin-top: 50px;
+  height: 100vh;
+  background: linear-gradient(#485f66, #a78b32);
+  color: #CDDBDE;
+}
+h1 {
+  font-size: 18px;
+  text-align: center;
+}
+input {
+  padding: 10px 10px;
+  background: #c6c791;
+  border: none;
+  outline: none;
+  transition: 0.5s ease-in-out;
+  display: block;
+  margin-top: 5px;
+}
+input:focus {
+  background: #CDDBDE;
+}
+select {
+  width: 100%;
+  padding: 10px 10px;
+  background: #c6c791;
+  outline: none;
+}
+
+/* BUTTONS */
+button {
+  max-width: 150px;
+  padding: 10px 20px;
+  background: #a0bac0;
+  color: #383131;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background: #c6c791;
+}
+#btnLang { /* Переключение языка */
+  font-size: 12px;
+  min-width: 160px;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+}
+.btn-container { /* Главные кнопки */
+  margin-top: 8px;
+  display: flex;
+  gap: 20%;
+  width: 100%;
+}
+
+/* FORM */
+.productstar_form {
+  margin-top: 120px;
+  width: 35vw;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form {
+  width: 100%;
+  padding: 20px 70px;
+  background: #4e666d;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* LOGIN, EMAIL, LANG */
+.login, .email, .lang {
+  width: 100%;
+}
+#loginInput, #emailInput, #passwordInput, #passwordInputRepeat {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* CHECKBOX */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+}
+.custom-checkbox .checkbox {
+  margin-right: 10px;
+}
+.custom-checkbox input {
+  position: absolute;                     
+}
+.checkbox { 
+  position: relative;
+  min-width: 20px;
+  min-height: 20px;
+  border: 1px solid #383131;
+  background: #c6c791;
+}
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  display: none;
+}
+.custom-checkbox input:checked ~ .checkbox .checkmark {
+  display: block;
+}
+.custom-checkbox input:checked ~ .checkbox {
+  size: 110%;
+  background: #c6c791;
+}
+
+/* PASSWORD */
+.password {
+  width: 100%;
+}
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.password-input-wrapper input {
+  padding-right: 30px; /* Adjust as needed to make space for the icon */
+}
+/* Видимость пароля */
+.showPsw {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.showPsw:hover {
+  cursor: pointer;
+}
+
+/* AGREEMENT */
+#checkboxLink, #signInLink {
+  text-decoration: none;
+  cursor: pointer;
+  color: #C6C791;
+  font-size: 12px;
+}
+#checkboxLink:hover, #signInLink:hover {
+  color: #A78B32;
+}
+#checkboxText, #signInText {
+  font-size: 12px;
+}
+
+/* Валидация */
+.errorText {
+  color: #e94f4f;
+  font-size: 12px;
+  display: none;
+}
+.errorText.visible {
+  display: block;
+}
+.errorLogin, .errorEmail, .errorPsw { 
+  background: #b67c7c;
+}
+
+/* Анимация */
+.cat {
+  width: 100px;
+  position: absolute;
+  left: 28%;
+  top: 5%;
+  z-index: -1;
+  animation: fly 15s infinite;
+} 
+@keyframes fly {
+  0% {
+    left: 28%;
+    top: 5;
+    transform: scaleX(1);
+  }
+  25% {
+    left: 60%;
+    top: 5%;
+    transform: scaleX(1);
+  }
+  50% {
+    left: 60%;
+    top: 5%;
+    transform: scaleX(-1);
+  }
+  75% {
+    left: 28%;
+    top: 5%;
+    transform: scaleX(-1); 
+  }
+  100% {
+    left: 28%;
+    top: 5%;
+    transform: scaleX(1); 
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .productstar_form {
+    width: 50vw;
+  }
+  .btn-container {
+    gap: 12%;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .productstar_form {
+    width: 70vw;
+  }
+  .btn-container {
+    gap: 15%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .productstar_form {
+    width: 90vw;
+  }
+  .btn-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+  button {
+    width: 100%;
+  }
+  #btnLang {
+    width: 400px;
+  }
+}

@@ -18,7 +18,7 @@ export default {
       eng: "English",
       submitBtn: "Submit",
       resetBtn: "Reset",
-      checkboxText: "By creating an account you agree to our",
+      checkboxText: "By creating an account you agree to our ",
       checkboxLink: "Terms & Privacy.",
       signInText: "Already have an account?",
       signInLink: "Sign in.",
