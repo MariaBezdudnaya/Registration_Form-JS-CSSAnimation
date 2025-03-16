@@ -52,10 +52,10 @@ button:hover {
 }
 #btnLang { /* Переключение языка */
   font-size: 12px;
-  min-width: 160px;
   position: absolute;
-  top: 20px;
-  right: 40px;
+  top: 10px;
+  left: 10px;
+  width: 180px;
 }
 .btn-container { /* Главные кнопки */
   margin-top: 8px;
@@ -66,7 +66,7 @@ button:hover {
 
 /* FORM */
 .productstar_form {
-  margin-top: 120px;
+  margin-top: 80px;
   width: 35vw;
   display: flex;
   flex-direction: column;
@@ -184,34 +184,34 @@ form {
   width: 100px;
   position: absolute;
   left: 28%;
-  top: 5%;
+  top: 4%;
   z-index: -1;
   animation: fly 15s infinite;
 } 
 @keyframes fly {
   0% {
     left: 28%;
-    top: 5;
+    top: 4;
     transform: scaleX(1);
   }
   25% {
     left: 60%;
-    top: 5%;
+    top: 4%;
     transform: scaleX(1);
   }
   50% {
     left: 60%;
-    top: 5%;
+    top: 4%;
     transform: scaleX(-1);
   }
   75% {
     left: 28%;
-    top: 5%;
+    top: 4%;
     transform: scaleX(-1); 
   }
   100% {
     left: 28%;
-    top: 5%;
+    top: 4%;
     transform: scaleX(1); 
   }
 }
@@ -232,6 +232,9 @@ form {
   .btn-container {
     gap: 15%;
   }
+  #btnLang {
+    max-width: 110px;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -245,7 +248,36 @@ form {
   button {
     width: 100%;
   }
-  #btnLang {
-    width: 400px;
+
+  .cat {
+    left: 32%;
+    top: 1%;
+  } 
+  @keyframes fly {
+    0% {
+      left: 34%;
+      top: 1;
+      transform: scaleX(1);
+    }
+    25% {
+      left: 65%;
+      top: 1%;
+      transform: scaleX(1);
+    }
+    50% {
+      left: 65%;
+      top: 1%;
+      transform: scaleX(-1);
+    }
+    75% {
+      left: 34%;
+      top: 1%;
+      transform: scaleX(-1); 
+    }
+    100% {
+      left: 34%;
+      top: 1%;
+      transform: scaleX(1); 
+    }
   }
 }
