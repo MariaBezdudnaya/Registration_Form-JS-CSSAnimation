@@ -180,38 +180,38 @@ form {
 }
 
 /* Анимация */
-.cat {
-  width: 100px;
+.rabbit {
+  width: 50px;
   position: absolute;
   left: 28%;
-  top: 4%;
+  top: 3%;
   z-index: -1;
   animation: fly 15s infinite;
 } 
 @keyframes fly {
   0% {
     left: 28%;
-    top: 4;
+    top: 3%;
     transform: scaleX(1);
   }
   25% {
     left: 60%;
-    top: 4%;
+    top: 3%;
     transform: scaleX(1);
   }
   50% {
     left: 60%;
-    top: 4%;
+    top: 3%;
     transform: scaleX(-1);
   }
   75% {
     left: 28%;
-    top: 4%;
+    top: 3%;
     transform: scaleX(-1); 
   }
   100% {
     left: 28%;
-    top: 4%;
+    top: 3%;
     transform: scaleX(1); 
   }
 }
@@ -249,7 +249,7 @@ form {
     width: 100%;
   }
 
-  .cat {
+  .rabbit {
     left: 32%;
     top: 1%;
   } 
